@@ -1,0 +1,16 @@
+### Starting build.
+# Target: streamsTests.ml.depends, tags: { extension:ml, file:streamsTests.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules streamsTests.ml > streamsTests.ml.depends # cached
+# Target: streams.ml.depends, tags: { extension:ml, file:streams.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules streams.ml > streams.ml.depends
+# Target: tests.ml.depends, tags: { extension:ml, file:tests.ml, ocaml, ocamldep, quiet }
+/usr/bin/ocamldep.opt -modules tests.ml > tests.ml.depends # cached
+# Target: tests.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:tests.cmo, file:tests.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -o tests.cmo tests.ml # cached
+# Target: streams.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:streams.cmo, file:streams.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -o streams.cmo streams.ml
+# Target: streamsTests.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:streamsTests.cmo, file:streamsTests.ml, implem, ocaml, quiet }
+/usr/bin/ocamlc.opt -c -o streamsTests.cmo streamsTests.ml
+# Target: streamsTests.byte, tags: { byte, dont_link_with, extension:byte, file:streamsTests.byte, link, ocaml, program, quiet }
+/usr/bin/ocamlc.opt streams.cmo tests.cmo streamsTests.cmo -o streamsTests.byte
+# Compilation successful.
